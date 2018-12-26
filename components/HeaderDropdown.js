@@ -2,19 +2,24 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withNavigation } from 'react-navigation'
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import { WALLET_DATA } from '../walletData'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 class HeaderDropdown extends React.Component {
   toggleDropdownVisibility = () => {
-    const isWalletDropdownVisible = this.props.navigation.getParam('isWalletDropdownVisible')
+    const isWalletDropdownVisible = this.props.navigation.getParam(
+      'isWalletDropdownVisible'
+    )
 
     // toggle dropdown
-    this.props.navigation.setParams({ isWalletDropdownVisible: !isWalletDropdownVisible })
+    this.props.navigation.setParams({
+      isWalletDropdownVisible: !isWalletDropdownVisible
+    })
   }
 
-  render () {
-    const isWalletDropdownVisible = this.props.navigation.getParam('isWalletDropdownVisible')
+  render() {
+    const isWalletDropdownVisible = this.props.navigation.getParam(
+      'isWalletDropdownVisible'
+    )
 
     return (
       <TouchableOpacity
@@ -57,7 +62,7 @@ const styles = StyleSheet.create({
   iconWrap: {
     marginTop: 2,
     marginLeft: 3
-  },
+  }
 })
 
 export default withNavigation(HeaderDropdown)

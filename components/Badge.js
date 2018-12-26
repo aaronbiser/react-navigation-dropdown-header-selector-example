@@ -1,21 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { View, Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet } from 'react-native'
 import { WALLET_TYPES } from '../walletData'
 
-const Badge = ({ id, label, value, type, selectedWalletId, onPress }) => {
-
-return (
-    <Text
-      style={[
-        styles.badge,
-        type === WALLET_TYPES.BITCOIN ? styles.bitcoin : styles.ethereum
-      ]}
-    >
-      {type}
-    </Text>
-  )
-}
+const Badge = ({ id, label, value, type, selectedWalletId, onPress }) => (
+  <Text
+    style={[
+      styles.badge,
+      type === WALLET_TYPES.BITCOIN ? styles.bitcoin : styles.ethereum
+    ]}
+  >
+    {type}
+  </Text>
+)
 
 Badge.propTypes = {
   type: PropTypes.string.isRequired
@@ -30,11 +27,11 @@ const styles = StyleSheet.create({
   },
   bitcoin: {
     color: '#222',
-    backgroundColor: '#F9B23B',
+    backgroundColor: '#F9B23B'
   },
   ethereum: {
     color: '#fff',
-    backgroundColor: '#8F9EB0',
+    backgroundColor: '#8F9EB0'
   }
 })
 

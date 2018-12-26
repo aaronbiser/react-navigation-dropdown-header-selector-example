@@ -1,15 +1,15 @@
 import React from 'react'
-import { ScrollView, Text, StatusBar, StyleSheet } from 'react-native'
+import { ScrollView, StatusBar, StyleSheet } from 'react-native'
 
 const Screen = ({ children }) => (
   <React.Fragment>
-    <StatusBar barStyle="light-content" />
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.scrollViewContentContainer}
-      >
-        {children}
-      </ScrollView>
+    <StatusBar barStyle='light-content' />
+    <ScrollView
+      style={styles.scrollView}
+      contentContainerStyle={styles.scrollViewContentContainer}
+    >
+      {children}
+    </ScrollView>
   </React.Fragment>
 )
 

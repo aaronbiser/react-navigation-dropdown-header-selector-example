@@ -73,12 +73,10 @@ WalletScreen.propTypes = {
       id: PropTypes.number.isRequired,
       label: PropTypes.string.isRequired,
       value: PropTypes.number.isRequired,
-      type: PropTypes.oneOf(Object.keys(WALLET_TYPES)).isRequired,
-      numSignaturesRequired: PropTypes.number.isRequired,
-      numSignatories: PropTypes.number.isRequired,
-      dateCreated: PropTypes.string.isRequired
+      type: PropTypes.oneOf(Object.values(WALLET_TYPES)).isRequired,
+      message: PropTypes.string
     })
-  )
+  ).isRequired
 }
 
 export default withNavigation(WalletScreen)
