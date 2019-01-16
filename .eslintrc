@@ -1,0 +1,17 @@
+{
+  "extends": ["standard", "standard-react"],
+  "rules": {
+    "react/display-name": [
+      {
+        "ignoreTranspilerName": true
+      }
+    ],
+    "react/prop-types": 1,
+    "react/no-unused-prop-types": "error",
+    "react/require-default-props": 1,
+    "react/default-props-match-prop-types": 1,
+    "react/prefer-stateless-function": 1,
+    "react/no-direct-mutation-state": 1,
+    "react/no-this-in-sfc": 1
+  }
+}
