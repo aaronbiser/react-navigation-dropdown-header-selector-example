@@ -1,29 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withNavigation } from 'react-navigation'
-import { View } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import Screen from './Screen'
 import WalletCard from './WalletCard'
 import WalletDetails from './WalletDetails'
 import { WALLET_TYPES } from '../walletData'
-
-const Card = ({ children, style }) => (
-  <View
-    style={{
-      borderRadius: 6,
-      backgroundColor: '#fff',
-      marginVertical: 8,
-      padding: 24,
-      shadowColor: '#000',
-      shadowOpacity: 0.15,
-      shadowRadius: 10,
-      shadowOffset: { width: 0, height: 4 },
-      ...style
-    }}
-  >
-    {children}
-  </View>
-)
 
 const WalletScreen = ({ navigation, wallets }) => {
   const isWalletDropdownVisible = navigation.getParam('isWalletDropdownVisible')
@@ -38,29 +20,27 @@ const WalletScreen = ({ navigation, wallets }) => {
     })
   }
 
-  const renderWalletScreen = () => {
-    if (isWalletDropdownVisible) {
-      return wallets.map(w => (
-        <WalletCard
-          key={w.id}
-          id={w.id}
-          label={w.label}
-          value={w.value}
-          type={w.type}
-          isSelected={w.id === selectedWalletId}
-          onPress={handleSelectWalletCard}
-        />
-      ))
-    }
-
-    return (
-      <Card style={{ alignItems: 'center', justifyContent: 'center' }}>
-        <WalletDetails wallet={wallet} />
-      </Card>
-    )
-  }
-
-  return <Screen>{renderWalletScreen()}</Screen>
+  return (
+    <Screen>
+      {isWalletDropdownVisible ? (
+        wallets.map(w => (
+          <WalletCard
+            key={w.id}
+            id={w.id}
+            label={w.label}
+            value={w.value}
+            type={w.type}
+            isSelected={w.id === selectedWalletId}
+            onPress={handleSelectWalletCard}
+          />
+        ))
+      ) : (
+        <View style={styles.card}>
+          <WalletDetails wallet={wallet} />
+        </View>
+      )}
+    </Screen>
+  )
 }
 
 WalletScreen.defaultProps = {
@@ -68,6 +48,7 @@ WalletScreen.defaultProps = {
 }
 
 WalletScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
   wallets: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -76,7 +57,22 @@ WalletScreen.propTypes = {
       type: PropTypes.oneOf(Object.values(WALLET_TYPES)).isRequired,
       message: PropTypes.string
     })
-  ).isRequired
+  )
 }
+
+const styles = StyleSheet.create({
+  card: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 6,
+    backgroundColor: '#fff',
+    marginVertical: 8,
+    padding: 24,
+    shadowColor: '#000',
+    shadowOpacity: 0.15,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 }
+  }
+})
 
 export default withNavigation(WalletScreen)

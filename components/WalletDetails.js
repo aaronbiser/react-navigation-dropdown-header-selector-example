@@ -35,12 +35,16 @@ const WalletDetails = ({ wallet }) => (
   </View>
 )
 
+WalletDetails.defaultProps = {
+  wallet: {}
+}
+
 WalletDetails.propTypes = {
-  wallets: PropTypes.shape({
+  wallet: PropTypes.shape({
     label: PropTypes.string.isRequired,
     value: PropTypes.number.isRequired,
     type: PropTypes.oneOf(Object.values(WALLET_TYPES)).isRequired,
-    message: PropTypes.number.isRequired
+    message: PropTypes.string.isRequired
   })
 }
 
