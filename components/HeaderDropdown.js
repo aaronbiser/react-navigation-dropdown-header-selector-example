@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withNavigation } from 'react-navigation'
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import { Ionicons } from 'react-native-vector-icons'
 
 class HeaderDropdown extends React.Component {
   toggleDropdownVisibility = () => {
@@ -10,13 +10,12 @@ class HeaderDropdown extends React.Component {
       'isWalletDropdownVisible'
     )
 
-    // toggle dropdown
     this.props.navigation.setParams({
       isWalletDropdownVisible: !isWalletDropdownVisible
     })
   }
 
-  render() {
+  render () {
     const isWalletDropdownVisible = this.props.navigation.getParam(
       'isWalletDropdownVisible'
     )

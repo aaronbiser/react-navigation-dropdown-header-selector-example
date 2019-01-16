@@ -5,7 +5,7 @@ import {
   createBottomTabNavigator,
   createStackNavigator
 } from 'react-navigation'
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import { Ionicons } from 'react-native-vector-icons'
 import Screen from '../Screen'
 import WalletScreen from '../WalletScreen'
 import HeaderDropdown from '../HeaderDropdown'
