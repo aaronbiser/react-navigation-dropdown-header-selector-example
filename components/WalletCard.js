@@ -13,7 +13,7 @@ const WalletCard = ({ id, label, value, type, isSelected, onPress }) => (
       { borderColor: isSelected ? '#69A6F7' : '#fff' }
     ]}
   >
-    <View style={[styles.cardWrap, { opacity: isSelected ? 1 : 0.7 }]}>
+    <View style={[styles.cardWrap, { opacity: isSelected ? 1 : 0.6 }]}>
       <Text style={styles.header}>{label}</Text>
       <View style={styles.cardBottom}>
         <Badge type={type} />
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     marginVertical: 8,
     padding: 18,
-    borderWidth: 2,
+    borderWidth: 3,
     borderStyle: 'solid',
     shadowColor: '#000',
     shadowOpacity: 0.15,
