@@ -21,24 +21,25 @@ const WalletScreen = ({ navigation, wallets }) => {
   }
 
   return (
-    <Screen>
+    <Screen scrollEnabled={!isWalletDropdownVisible}>
       {isWalletDropdownVisible ? (
-        wallets.map(w => (
-          <WalletCard
-            key={w.id}
-            id={w.id}
-            label={w.label}
-            value={w.value}
-            type={w.type}
-            isSelected={w.id === selectedWalletId}
-            onPress={handleSelectWalletCard}
-          />
-        ))
-      ) : (
-        <View style={styles.card}>
-          <WalletDetails wallet={wallet} />
-        </View>
-      )}
+        <Screen style={styles.walletCardWrap}>
+          {wallets.map(w => (
+            <WalletCard
+              key={w.id}
+              id={w.id}
+              label={w.label}
+              value={w.value}
+              type={w.type}
+              isSelected={w.id === selectedWalletId}
+              onPress={handleSelectWalletCard}
+            />
+          ))}
+        </Screen>
+      ) : null}
+      <View style={styles.card}>
+        <WalletDetails wallet={wallet} />
+      </View>
     </Screen>
   )
 }
@@ -61,6 +62,11 @@ WalletScreen.propTypes = {
 }
 
 const styles = StyleSheet.create({
+  walletCardWrap: {
+    ...StyleSheet.absoluteFillObject,
+    zIndex: 1,
+    backgroundColor: 'rgba(100, 100, 100, 0.8)'
+  },
   card: {
     alignItems: 'center',
     justifyContent: 'center',
