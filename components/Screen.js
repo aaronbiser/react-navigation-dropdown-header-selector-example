@@ -1,11 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { ScrollView, StatusBar, StyleSheet } from 'react-native'
 
-const Screen = ({ children }) => (
+const Screen = ({ children, style }) => (
   <React.Fragment>
     <StatusBar barStyle='light-content' />
     <ScrollView
-      style={styles.scrollView}
+      style={[styles.scrollView, style]}
       contentContainerStyle={styles.scrollViewContentContainer}
     >
       {children}
@@ -23,5 +24,15 @@ const styles = StyleSheet.create({
     padding: 20
   }
 })
+
+Screen.defaultProps = {
+  children: null,
+  style: {}
+}
+
+Screen.propTypes = {
+  children: PropTypes.node,
+  style: PropTypes.object
+}
 
 export default Screen
