@@ -3,13 +3,8 @@ import PropTypes from 'prop-types'
 import { Text, StyleSheet } from 'react-native'
 import { WALLET_TYPES } from '../walletData'
 
-const Badge = ({ id, label, value, type, selectedWalletId, onPress }) => (
-  <Text
-    style={[
-      styles.badge,
-      type === WALLET_TYPES.BITCOIN ? styles.bitcoin : styles.ethereum
-    ]}
-  >
+const Badge = ({ type }) => (
+  <Text style={[ styles.badge, type === WALLET_TYPES.BITCOIN ? styles.bitcoin : styles.ethereum ]}>
     {type}
   </Text>
 )

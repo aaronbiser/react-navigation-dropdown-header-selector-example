@@ -24,6 +24,7 @@ class HeaderDropdown extends React.Component {
       <TouchableOpacity
         activeOpacity={0.7}
         onPress={this.toggleDropdownVisibility}
+        style={styles.touchableWrap}
       >
         <View style={styles.textWrap}>
           <Text style={styles.text}>{this.props.title}</Text>
@@ -46,6 +47,12 @@ HeaderDropdown.propTypes = {
 }
 
 const styles = StyleSheet.create({
+  touchableWrap: {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent:'center'
+  },
   textWrap: {
     display: 'flex',
     flexDirection: 'row',
