@@ -14,7 +14,7 @@
   "dependencies": {
     "eslint": "5.6.0",
     "expo": "^35.0.0",
-    "lodash": "4.17.11",
+    "lodash": "4.17.21",
     "prettier-standard": "^8.0.1",
     "prop-types": "15.6.2",
     "react": "16.8.3",
